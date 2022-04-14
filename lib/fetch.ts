@@ -13,8 +13,8 @@ export const fetcher = async (url: any, data = undefined) => {
     const error = new Error("An error occurred while fetching the data.");
     console.log("Error en fetch error", error);
     // Attach extra info to the error object.
-    error.info = await res.json();
-    error.status = res.status;
+    //error.info = await res.json();
+    //error.status = res.status;
     throw error;
   }
 
