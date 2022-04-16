@@ -1,11 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
-
+// next.config.js
 module.exports = {
-  nextConfig,
-  //avoiding CORS error, more here: https://vercel.com/support/articles/how-to-enable-cors
   async headers() {
     return [
       {
