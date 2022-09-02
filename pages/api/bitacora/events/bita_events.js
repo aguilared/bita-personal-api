@@ -3,8 +3,8 @@ import prisma from "../../../../lib/prisma";
 export default async function handle1(req, res) {
   const bitacoraId = req.query.id;
   const [result, totalEvents] = await prisma.$transaction([
-    prisma.bita_events.findMany({
-      where: { bitacora_id: Number(bitacoraId) },
+    prisma.bitacora.findMany({
+      where: { id: Number(bitacoraId) },
       include: {
         bita_events: {
           select: {
