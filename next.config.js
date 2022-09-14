@@ -1,5 +1,6 @@
 // next.config.js
 module.exports = {
+  //avoiding CORS error, more here: https://vercel.com/support/articles/how-to-enable-cors
   async headers() {
     return [
       {
