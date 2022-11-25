@@ -14,4 +14,3 @@ export default async function handle(
   });
   res.json(bitacora);
 }
-const bitacoraId = req.query.id;
