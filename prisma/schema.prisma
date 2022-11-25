@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("NEXT_PUBLIC_DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -25,6 +25,8 @@ model User {
   email         String?   @unique
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  password      String?
+  nivel         Int
   posts         Post[]
   bitacora      Bitacora[]
   @@map(name: "users")
