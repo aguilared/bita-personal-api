@@ -3,7 +3,7 @@
 // se cambio env data
 datasource db {
   provider = "postgresql"
-  url      = env("NEXT_PUBLIC_DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
