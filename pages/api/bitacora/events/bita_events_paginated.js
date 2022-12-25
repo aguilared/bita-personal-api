@@ -35,7 +35,7 @@ export default async function handle1(req, res) {
             select: { id: true, description: true },
           },
           bitacora: {
-            select: { id: true, author: true },
+            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -64,7 +64,7 @@ export default async function handle1(req, res) {
             select: { id: true, description: true },
           },
           bitacora: {
-            select: { id: true, author: true },
+            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -94,7 +94,7 @@ export default async function handle1(req, res) {
             select: { id: true, description: true },
           },
           bitacora: {
-            select: { id: true, author: true },
+            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -124,7 +124,7 @@ export default async function handle1(req, res) {
             select: { id: true, description: true },
           },
           bitacora: {
-            select: { id: true, author: true },
+            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
