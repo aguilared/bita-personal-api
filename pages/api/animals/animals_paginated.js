@@ -1,4 +1,4 @@
-import prisma from "../../../../lib/prisma";
+import prisma from "../../../lib/prisma";
 
 export default async function handle1(req, res) {
   const query = req.query;
@@ -8,7 +8,7 @@ export default async function handle1(req, res) {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const result = {};
-  const count = await prisma.bitaEvents.count();
+  const count = await prisma.animal.count();
   const totalPage = Math.ceil(count / limit);
   const currentPage = page || 0;
 
@@ -21,21 +21,18 @@ export default async function handle1(req, res) {
       result.currentPage = currentPage;
       result.next = page + 1;
       result.previous = page - 1;
-      result.results = await prisma.bitaEvents.findMany({
+      result.results = await prisma.animal.findMany({
         take: limit,
         skip: startIndex,
         orderBy: {
-          bitacora_id: "desc",
+          id: "asc",
         },
         include: {
-          event: {
-            select: { id: true, description: true },
+          owner: {
+            select: { id: true, name: true },
           },
-          tipoEvent: {
+          clase: {
             select: { id: true, description: true },
-          },
-          bitacora: {
-            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -50,21 +47,18 @@ export default async function handle1(req, res) {
       result.next = page + 1;
       result.previous = page - 1;
 
-      result.results = await prisma.bitaEvents.findMany({
+      result.results = await prisma.animal.findMany({
         take: limit,
         skip: startIndex,
         orderBy: {
-          bitacora_id: "desc",
+          id: "asc",
         },
         include: {
-          event: {
-            select: { id: true, description: true },
+          owner: {
+            select: { id: true, name: true },
           },
-          tipoEvent: {
+          clase: {
             select: { id: true, description: true },
-          },
-          bitacora: {
-            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -80,21 +74,18 @@ export default async function handle1(req, res) {
         page: page - 1,
         limit: limit,
       };
-      result.results = await prisma.bitaEvents.findMany({
+      result.results = await prisma.animal.findMany({
         take: limit,
         skip: startIndex,
         orderBy: {
-          bitacora_id: "desc",
+          id: "asc",
         },
         include: {
-          event: {
-            select: { id: true, description: true },
+          owner: {
+            select: { id: true, name: true },
           },
-          tipoEvent: {
+          clase: {
             select: { id: true, description: true },
-          },
-          bitacora: {
-            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
@@ -110,21 +101,18 @@ export default async function handle1(req, res) {
         page: totalPage,
         limit: limit,
       };
-      result.results = await prisma.bitaEvents.findMany({
+      result.results = await prisma.animal.findMany({
         take: limit,
         skip: startIndex,
         orderBy: {
-          bitacora_id: "desc",
+          id: "asc",
         },
         include: {
-          event: {
-            select: { id: true, description: true },
+          owner: {
+            select: { id: true, name: true },
           },
-          tipoEvent: {
+          clase: {
             select: { id: true, description: true },
-          },
-          bitacora: {
-            select: { id: true, author: true, bitacora_date: true },
           },
         },
       });
