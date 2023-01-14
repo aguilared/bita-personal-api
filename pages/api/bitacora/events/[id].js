@@ -13,6 +13,9 @@ export default async function handle1(req, res) {
         tipoEvent: {
           select: { id: true, description: true },
         },
+        bitacora: {
+          select: { id: true, author: true, bitacora_date: true },
+        },
       },
     }),
   ]);
