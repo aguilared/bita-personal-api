@@ -87,6 +87,8 @@ model Animal {
   birthdate      String?
   owner          User?     @relation(fields: [owner_id], references: [id]) //fk
   owner_id       Int? 
+  clase          Clase?    @relation(fields: [clase_id], references: [id]) //fk
+  clase_id       Int?
   tipopart       String?
   hierro         String? 
   mother         String?
@@ -102,5 +104,6 @@ model Clase {
   description  String?
   created_at   DateTime  @default(now()) @map(name: "created_at")
   updated_at   DateTime  @updatedAt @map(name: "updated_at")
+  animals      Animal[]  // A clases can have many animals
   @@map(name: "clases")
 }
