@@ -7,6 +7,13 @@ export default async function handle(
 ) {
   console.log("El REQ", req);
   console.log("El REQBODY", req.body);
-  const bitacora = await prisma.bitacora.create({ data: req.body });
+  const bitacora = await prisma.bitacora.create({
+    data: req.body,
+    select: {
+      id: true,
+    },
+  });
+  console.log("El RESP", bitacora);
+
   res.json(bitacora);
 }
