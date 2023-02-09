@@ -29,7 +29,6 @@ model User {
   nivel         Int
   posts         Post[]
   bitacora      Bitacora[]
-  animal        Animal[]
   @@map(name: "users")
 }
 
