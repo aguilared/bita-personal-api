@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf yarn.lock && rm -rf .next/ && yarn install && yarn run dev"
   },
   "dependencies": {
     "@prisma/client": "^3.12.0",
