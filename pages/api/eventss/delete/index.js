@@ -1,7 +1,6 @@
 import prisma from "../../../../lib/prisma";
 
-export default async function handle(req,
-  res) {
+export default async function handle(req,res) {
   console.log("El REQ", req);
   console.log("El REQ BODY", req.body);
   const bitacoraId = req.body.id;
