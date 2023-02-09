@@ -1,10 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../lib/prisma";
 
-export default async function handle(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handle(req,
+  res) {
   console.log("El REQ", req);
   console.log("El REQ BODY", req.body);
   const bitacoraId = req.body.id;
@@ -14,4 +11,3 @@ export default async function handle(
   });
   res.json(bitacora);
 }
-const bitacoraId = req.query.id;
