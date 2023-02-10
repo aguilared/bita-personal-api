@@ -10,7 +10,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 model User {
   id            Int       @default(autoincrement()) @id
   name          String?
@@ -23,7 +22,6 @@ model User {
   animal        Animal[]
   @@map(name: "users")
 }
-
 
 model Bitacora {
   id             Int       @default(autoincrement()) @id
@@ -73,7 +71,6 @@ model Event {
   @@map(name: "events")
 }
 
-
 model Animal {
   id             Int       @default(autoincrement()) @id
   name           String?
@@ -91,7 +88,6 @@ model Animal {
   updated_at     DateTime  @updatedAt @map(name: "updated_at")
   @@map(name: "animals")
 }
-
 
 model Clase {
   id           Int       @default(autoincrement()) @id
