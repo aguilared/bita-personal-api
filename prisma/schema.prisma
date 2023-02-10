@@ -10,14 +10,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int     @default(autoincrement()) @id
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
-}
 
 model User {
   id            Int       @default(autoincrement()) @id
@@ -27,8 +19,8 @@ model User {
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   password      String?
   nivel         Int
-  posts         Post[]
   bitacora      Bitacora[]
+  animal        Animal[]
   @@map(name: "users")
 }
 
@@ -86,7 +78,9 @@ model Animal {
   id             Int       @default(autoincrement()) @id
   name           String?
   birthdate      String?
+  owner          User?     @relation(fields: [owner_id], references: [id]) //fk
   owner_id       Int? 
+  clase          Clase?    @relation(fields: [clase_id], references: [id]) //fk
   clase_id       Int?
   tipopart       String?
   hierro         String? 
@@ -104,5 +98,6 @@ model Clase {
   description  String?
   created_at   DateTime  @default(now()) @map(name: "created_at")
   updated_at   DateTime  @updatedAt @map(name: "updated_at")
+  animals      Animal[]  // A clases can have many animals
   @@map(name: "clases")
 }
