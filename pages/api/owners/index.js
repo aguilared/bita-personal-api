@@ -7,7 +7,7 @@ export default async function handle(req, res) {
     },
     include: {
       _count: {
-        select: { bitacora: true },
+        select: { animal: true },
       },
     },
   });
