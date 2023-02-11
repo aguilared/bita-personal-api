@@ -6,8 +6,11 @@ export default async function handle(req, res) {
       id: "asc",
     },
     include: {
+      animal: {
+        select: { id: true, name: true },
+      },
       _count: {
-        select: { bitacora: true },
+        select: { animal: true },
       },
     },
   });
