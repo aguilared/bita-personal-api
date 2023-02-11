@@ -9,6 +9,9 @@ export default async function handle(req, res) {
       _count: {
         select: { animal: true },
       },
+      animal: {
+        select: { id: true, name: true },
+      },
     },
   });
   res.json(result);
